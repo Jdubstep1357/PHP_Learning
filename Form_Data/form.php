@@ -2,7 +2,7 @@
 <?php
 // checks to see if data is there
 if(isset($_POST['submit'])) {
-    echo "Yes it works! Nice job!";
+    echo "Yes it works!";
 }
 ?>
 
@@ -20,7 +20,7 @@ if(isset($_POST['submit'])) {
 <!-- method for post is sent to something else -->
 <form action="form.php" method="post">
     <input type="text" placeholder="Enter user name">
-    <input type="password" placeholder="Enter password"> 
+    <input type="password" placeholder="Enter password">
     <br>
     <!-- name is linked to super global var -->
     <input type="submit" name="submit">
