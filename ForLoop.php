@@ -7,7 +7,6 @@
 <body>
     
     <?php
-    //sample text here
     
     //3 steps
     // 1. set counter
