@@ -2,7 +2,7 @@
 <?php
 // checks to see if data is there
 if(isset($_POST['submit'])) {
-    echo "Yes it works!";
+    echo "Yes it works! Nice job!";
 }
 ?>
 
