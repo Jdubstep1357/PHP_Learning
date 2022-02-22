@@ -1,23 +1,15 @@
 <?php 
 
-
-// checks the value of submit button
-if(isset($_POST['submit'])) {
-    
+// connect to the database, localhost, username, password, database name
+$connection = mysqli_connect('localhost', 'root', 'root', 'loginapp');
 
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    if($username && $password) {
-        echo $username;
-        echo $password;
-    } else{
-        echo "This field cannot be blank";
-    }
-    
+if($connection) {
+    echo "We are connected";
+} else {
+    // will not execute any code but shows error
+    die("Database connection failed");
 }
-
 ?>
 
 
