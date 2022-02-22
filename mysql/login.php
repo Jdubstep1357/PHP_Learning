@@ -3,12 +3,18 @@
 
 // checks the value of submit button
 if(isset($_POST['submit'])) {
+    
+
 
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    echo $username;
-    echo $password;
+    if($username && $password) {
+        echo $username;
+        echo $password;
+    } else{
+        echo "This field cannot be blank";
+    }
     
 }
 
