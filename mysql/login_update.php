@@ -55,7 +55,7 @@ if(!$result) {
             
             <div class="form-group">
                 
-                <select name="" id="">
+                <select name="id" id="">
                     
                     <option value="">1</option>
                     
