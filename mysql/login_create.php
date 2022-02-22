@@ -1,14 +1,35 @@
 <?php 
 
-// connect to the database, localhost, username, password, database name
-$connection = mysqli_connect('localhost', 'root', 'root', 'loginapp');
+if(isset($_POST['submit'])) {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    // connect to the database, localhost, username, password, database name
+    $connection = mysqli_connect('localhost', 'root', 'root', 'loginapp');
 
 
-if($connection) {
-    echo "We are connected";
-} else {
-    // will not execute any code but shows error
-    die("Database connection failed");
+    if($connection) {
+        echo "We are connected";
+    } else {
+        // will not execute any code but shows error
+        die("Database connection failed");
+    }
+
+    // using sql query inside of php code
+    $query = "INSERT INTO users(username, password) ";
+    // .= concatonates the text
+    // use '' around $ due to them being strings
+    $query .= "VALUES ('$username', '$password')";
+
+
+    $result = mysqli_query($connection, $query);
+
+    if(!$result) {
+
+        die("Query failed" . mysqli_error());
+
+    }
+
 }
 ?>
 
@@ -36,7 +57,7 @@ if($connection) {
    
 <div class="container">
     <div class="col-sm-6">
-        <form action="login.php" method="post">
+        <form action="login_create.php" method="post">
             <div class="form-group">
                <label for="username">Username</label>
                 <input type="text" name="username" class="form-control">
