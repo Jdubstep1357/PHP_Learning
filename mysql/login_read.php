@@ -1,16 +1,5 @@
 <?php 
 
-// CRUD
-/* 
-    CREATE
-    READ
-    UPDATE
-    DELETE
-*/
-
-
-$username = $_POST['username'];
-$password = $_POST['password'];
 // connect to the database, localhost, username, password, database name
 $connection = mysqli_connect('localhost', 'root', 'root', 'loginapp');
 
