@@ -4,9 +4,7 @@
 $connection = mysqli_connect('localhost', 'root', 'root', 'loginapp');
 
 
-if($connection) {
-    echo "We are connected";
-} else {
+if(!$connection) {
     // will not execute any code but shows error
     die("Database connection failed");
 }

@@ -1,24 +1,5 @@
-<?php include "db.php";
-
-/* This allows when you put in the username and password, it over-rides the original data */
-
-// using sql query inside of php code
-$query = "SELECT * FROM users";
-
-
-$result = mysqli_query($connection, $query);
-
-if(!$result) {
-
-    die("Query failed" . mysqli_error());
-
-}
-
-
-?>
-
-
-
+<?php include "db.php";?>
+<?php include "functions.php";?>
 
 
 <!DOCTYPE html>
@@ -56,15 +37,19 @@ if(!$result) {
             <div class="form-group">
                 
                 <select name="id" id="">
+                   <?php
+                        /* This is from functions.php */
+                        showAllData();
                     
-                    <option value="">1</option>
+                    ?>
+                    
                     
                 </select>
                 
             </div>
             
             <!-- When you put in the username and password, it over-rides the original data -->
-            <input type="submit" name="submit" value="UPDATE">
+            <input class="btn btn-primary" type="submit" name="submit" value="UPDATE">
         </form>
     
     
