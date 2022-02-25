@@ -4,14 +4,27 @@
 <?php
 // calls function when form is submitted
 if(isset($_POST['submit'])) {
-    
-UpdateTable();
-}
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $connection = mysqli_connect('localhost','root','root','loginapp');
+        if(!$connection) {
+            die("Database connection failed");
+        }
+
+        $query = "INSERT INTO users(username,password) ";
+        $query .= "VALUES ('$username', '$password')";
+
+        $result = mysqli_query($connection, $query);
+
+        if(!$result) {
+            die('QUERY FAILED');
+        }
+    }
+
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>

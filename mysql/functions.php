@@ -10,7 +10,7 @@ function showAllData() {
 
     if(!$result) {
 
-        die("Query failed" . mysqli_error());
+        die("Query failed");
     }
 
 
@@ -27,34 +27,24 @@ function showAllData() {
 
 function UpdateTable() {
 global $connection;
+    
     $username = $_POST['username'];
     $password = $_POST['password'];
-    // connect to the database, localhost, username, password, database name
-    $connection = mysqli_connect('localhost', 'root', 'root', 'loginapp');
-
-
-    if(!$connection) {
-        // will not execute any code but shows error
-        die("Database connection failed");
-    }
-
-    // using sql query inside of php code
-    $query = "INSERT INTO users(username, password) ";
-    // .= concatonates the text
-    // use '' around $ due to them being strings
-    $query .= "VALUES ('$username', '$password')";
-
-
+    $id = $_POST['id'];
+    
+    $query = "UPDATE users SET ";
+    $query .= "username = '$username', ";
+    $query .= "password = '$password' ";
+    $query .= "WHERE id = $id ";
+    
     $result = mysqli_query($connection, $query);
-
     if(!$result) {
-
-        die("Query failed" . mysqli_error());
-
+        die("QUERY FAILED" . 
+           mysqli_error($connection));
     }
-
-
 }
+
+
 
 ?>
 

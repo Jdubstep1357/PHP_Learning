@@ -1,31 +1,10 @@
 <?php include "db.php";?>
 <?php include "functions.php";?>
 
-
 <?php
-
 if(isset($_POST['submit'])) {
-    
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
-    
-    // if one doesn't put a space next to SPACE, messes up MYSQL syntax
-    $query = "UPDATE users SET ";
-    $query .= "username = '$username', ";
-    $query .= "password = '$password' ";
-    // no quotes around $id due to it being INT
-    $query .= "WHERE id = $id ";
-    
-    $result = mysqli_query($connection, $query);
-
-    if(!result) {
-        //command that stops all executions after this
-        die("QUERY FAILED" . mysqli_error($connection));
-    }
-    
+    UpdateTable();
 }
-
 ?>
 
 
