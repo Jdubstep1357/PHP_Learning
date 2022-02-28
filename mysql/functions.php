@@ -1,7 +1,7 @@
 <?php include "db.php";?>
 <?php
 
-
+//  CREATEROWS()
 function createRows() {
     if(isset($_POST['submit'])) {
         global $connection;
@@ -20,6 +20,29 @@ function createRows() {
         }
     }
 }
+
+
+//  READROWS()
+function readRows() {
+// using sql query inside of php code
+    global $connection;
+    $query = "SELECT * FROM users";
+    $result = mysqli_query($connection, $query);
+
+    if(!$result) {
+        die('Query failed');
+    }
+            // this gathers all the data from rows from php_myadmin
+            while($row = mysqli_fetch_assoc($result)) {
+                print_r($row);
+             
+            }
+}
+
+
+
+
+// SHOWALDATA()
 
 /* This function pulls all data from users table */
 function showAllData() {
@@ -44,7 +67,7 @@ function showAllData() {
 
 
  
-
+//  UPDATE TABLE()
 function UpdateTable() {
 global $connection;
     
@@ -61,28 +84,34 @@ global $connection;
     if(!$result) {
         die("QUERY FAILED" . 
            mysqli_error($connection));
-    }
-}
-
-
-function DeleteRows() {
-
-    global $connection;
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
-    
-    $query = "DELETE FROM users ";
-    $query .= "WHERE id = $id ";
-    
-    $result = mysqli_query($connection, $query);
-    if(!$result) {
-        die("QUERY FAILED" . 
-           mysqli_error($connection));
     } else {
-        echo "Record Deleted";
+        echo "Record updated!";
     }
 }
+
+
+
+//  DELETEROWS()
+function DeleteRows() {
+        if(isset($_POST['submit'])) {
+        global $connection;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $id = $_POST['id'];
+        
+        $query = "DELETE FROM users ";
+        $query .= "WHERE id = $id ";
+        
+        $result = mysqli_query($connection, $query);
+        if(!$result) {
+            die("QUERY FAILED" . 
+            mysqli_error($connection));
+        } else {
+            echo "Record Deleted";
+        }
+    }
+}
+
 
 
 
