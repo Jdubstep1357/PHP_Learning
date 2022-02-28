@@ -1,27 +1,8 @@
 <?php include "db.php";?>
-<?php include "functions.php";?>
+<?php include "functions.php"; ?>
 
 <?php
-// calls function when form is submitted
-if(isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $connection = mysqli_connect('localhost','root','root','loginapp');
-        if(!$connection) {
-            die("Database connection failed");
-        }
-
-        $query = "INSERT INTO users(username,password) ";
-        $query .= "VALUES ('$username', '$password')";
-
-        $result = mysqli_query($connection, $query);
-
-        if(!$result) {
-            die('QUERY FAILED');
-        }
-    }
-
-
+createRows();
 ?>
 
 <html>
@@ -40,6 +21,7 @@ if(isset($_POST['submit'])) {
 
 <div class="container">
     <div class="col-sm-6">
+       <h1 class="text-center">Create</h1>
         <form action="login_create.php" method="post">
             <div class="form-group">
                <label for="username">Username</label>
@@ -50,7 +32,7 @@ if(isset($_POST['submit'])) {
                 <input type="text" name="password" class="form-control">
             </div>
             
-            <input class="btn btn-primary" type="submit" value="submit" name="submit">
+            <input class="btn btn-primary" type="submit" value="submit" name="CREATE">
         </form>
     </div>
 </div>

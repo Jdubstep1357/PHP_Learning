@@ -1,6 +1,26 @@
 <?php include "db.php";?>
 <?php
 
+
+function createRows() {
+    if(isset($_POST['submit'])) {
+        global $connection;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $query = "INSERT INTO users(username,password) ";
+        $query .= "VALUES ('$username', '$password')";
+
+        $result = mysqli_query($connection, $query);
+
+        if(!$result) {
+            die("Query failed!");
+        } else {
+            echo "Record created!";
+        }
+    }
+}
+
 /* This function pulls all data from users table */
 function showAllData() {
     // makes sure connection is global
