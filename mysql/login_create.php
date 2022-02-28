@@ -1,7 +1,6 @@
-<?php include "db.php";?>
-<?php include "functions.php"; ?>
+<?php   include "db.php";
+        include "functions.php"; 
 
-<?php
 createRows();
 ?>
 
@@ -32,7 +31,7 @@ createRows();
                 <input type="text" name="password" class="form-control">
             </div>
             
-            <input class="btn btn-primary" type="submit" value="submit" name="CREATE">
+            <input class="btn btn-primary" type="submit"  name="submit" value="CREATE">
         </form>
     </div>
 </div>
