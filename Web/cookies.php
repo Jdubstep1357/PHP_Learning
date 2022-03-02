@@ -7,6 +7,7 @@ $name = "Somename";
 $value = 100;
 // multiple seconds (60) * minutes (60) * hours (24) * days (7)
 $expiration = time($name,$value,$expiration) + (60*60*24*7);
+setcookie($name,$value,$expiration);
 
 ?>
 
