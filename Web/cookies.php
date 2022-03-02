@@ -22,5 +22,19 @@ setcookie($name,$value,$expiration);
 </head>
 <body>
     
+<?php 
+
+// check to see if cookie was set
+if(isset($_COOKIE["SomeName"])) {
+    $someOne = $_COOKIE["SomeName"];
+
+    echo $someOne;
+
+} else {
+    $someOne = "";
+}
+
+?>
+
 </body>
 </html>
