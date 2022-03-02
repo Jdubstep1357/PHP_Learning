@@ -1,39 +1,20 @@
 <?php include "functions.php" ?>
-<?php include "includes/header.php" ?>
     
 
 <?php 
 	/*  Step 1 - Create a database in PHPmyadmin */
-
-
-
 	$connection = mysqli_connect('localhost', 'root', 'root', 'Quiz_Time');
 	if(!$connection) {
-		die("Database connection failed") . mysqli_error($connection);
+		die("Database connection failed");
 	} else {
-		echo "Database connected!"
+		echo "Database connected!";
 	}
+
 ?>
 
-	<section class="content">
-
-		<aside class="col-xs-4">
-
-		<?php Navigation();?>
-			
-			
-		</aside><!--SIDEBAR-->
 
 
-	<article class="main-content col-xs-8">
-	
-	
-	
-	<?php  
-
-
-
-
+<?php
 
 
 		// Step 2 - Create a table like the one from the lecture
