@@ -8,6 +8,17 @@ function createRows() {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
+
+        // this is used for encryption under php manuel
+        $hashFormat = "$2y$10$";
+
+        //this makes better encryption
+        $salt = "thistextisabout22chars";
+
+        $hashF_and_salt = $hashFormat . $salt;
+
+        $password = crypt($password, $hashF_and_salt);
+
         // stops hackers or other people from doing things
         $username = mysqli_real_escape_string($connection, $username );
         $password =  mysqli_real_escape_string($connection, $password );
