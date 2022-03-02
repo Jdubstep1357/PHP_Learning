@@ -10,9 +10,11 @@ function createRows() {
 
 
         // this is used for encryption under php manuel
+        // 10 shows how many times the crypt will run
+        // crypt randomly generates password. 10 shows how many times password reset
         $hashFormat = "$2y$10$";
 
-        //this makes better encryption
+        // something that is 22 characters -- research this
         $salt = "thistextisabout22chars";
 
         $hashF_and_salt = $hashFormat . $salt;
